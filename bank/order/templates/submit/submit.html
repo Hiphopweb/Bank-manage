@@ -81,7 +81,7 @@
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">描述</label>
         <div class="layui-input-block">
-            <textarea name="desc" lay-verify="desc" placeholder="请输入内容" class="layui-textarea" maxlength="255" minlength="1"></textarea>
+            <textarea name="desc" id="desc" lay-verify="desc" placeholder="请输入内容" class="layui-textarea" maxlength="255" minlength="1"></textarea>
         </div>
     </div>
 
@@ -128,15 +128,6 @@
 
         form.on('submit(formSub)',function(data) {
             //获取所有表单数据
-<<<<<<< HEAD
-=======
-            localStorage.setItem("a_name", data.field.a_name);
-
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            });
-
->>>>>>> upstream/dev
             $.ajax({
                 url: "/api/form",
                 type: "POST",
@@ -150,7 +141,9 @@
                     type: "1"
                 },
                 success : function () {
-                    $("input").val("");$("select").val("");
+                    $("input").val("");
+                    $("select").val("");
+                    $('#desc').val('');
                     layer.msg("提交成功");
                     },
                 error : function(){layer.msg("提交失败")}
@@ -158,5 +151,4 @@
             return false;
         });
 </script>
-
 </body>

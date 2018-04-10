@@ -30,7 +30,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree  layui-bg-cyan "  lay-filter="test">
+            <ul class="layui-nav layui-nav-tree  layui-bg-cyan "  lay-filter=" ">
                 <li class="layui-nav-item layui-nav-itemed layui-this">
                     <a href="../submit/submit.html" target="menuFrame" class="left_navbar"><i class="layui-icon" style="font-size: 20px; color: #dddddd;position: relative;left: 20px;top: 1px;">&#xe63c;</i><span class="left_nav">表单模块</span></a>
                 </li>
@@ -51,14 +51,12 @@
     </div>
 
     <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        © layui.com - 底部固定区域
+            智邮普创工作室
     </div>
 </div>
 
 <script src="../static/layui.all.js"></script>
 <script type="text/javascript">
-        $("#edit_user").hide();
         var $ = layui.jquery;
         //引入jQuery
         $.ajax({
@@ -66,16 +64,14 @@
             type: "POST",
             data : {},
             success : function (data) {
-<<<<<<< HEAD
-                document.getElementById("username").innerHTML = data.data.name;
-                if (data.data.type = 1 || 2){
-                    $("#edit_user").show();
+                if (data.data.type == User ){
+                    $("#edit_user").hide();
                 }
-=======
                 document.getElementById("username").innerHTML = data.data.username;
->>>>>>> upstream/dev
-            }
-        });       
+            },
+            
+            error : function(){layer.msg("获取用户信息失败")}                
+        });
 </script>
 </body>
 </html>
