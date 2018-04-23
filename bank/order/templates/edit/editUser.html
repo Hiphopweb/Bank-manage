@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/layui.css"  media="all">
     <style>
-    body{
+               body{
         background-color:#fffafa;
     }
     form{
@@ -106,7 +106,6 @@
              }
             }
         } 
-
         form.render('select');
         //监听提交
         form.on('submit(formSub)',function(data) {
@@ -119,7 +118,7 @@
                     id:data1.id,
                     name: data.field.name,
                     type: data.field.type,
-                    password: data.field.password,
+                    password: data.field.password
                 },
                 success : function () {
                     storage.setItem("iframedata",dd);
@@ -128,7 +127,7 @@
                     layer.msg("编辑成功");
                     },
                 error : function(){layer.msg("编辑失败")}
-            })
+            });
             return false;
         });
      localStorage.clear();
